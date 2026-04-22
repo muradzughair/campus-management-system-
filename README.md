@@ -1,1 +1,75 @@
-OverviewThis project is a campus management system developed using Java. It aims to solve real-world university service problems through the application of appropriate data structures and algorithms. The system provides a centralized console application for administrators and students to interact with various university services.Features and Data StructuresThe system implements six core features, each utilizing a specific Abstract Data Type (ADT) tailored for optimal performance:Lost & Found Tracking: Utilizes a dynamic Linked List to allow the insertion and removal of item records. This supports the efficient tracking of an unpredictable number of lost items without array limits.Room Booking: Implements a Priority Queue using a Sorted Linked List. This enables the system to always access the highest-priority booking first while maintaining an ordered structure.Campus Navigation: Uses a Graph modeled with an Adjacency List to represent campus building connections. It calculates the shortest path between buildings using Dijkstra's algorithm.Undo/Redo System: Employs custom Stack objects to provide last-in-first-out (LIFO) logic. This allows the system to reverse or re-apply recent user actions in the correct order.Event Registration: Uses a Queue to preserve the order in which students register for events. This ensures fair sequential processing using first-in-first-out (FIFO) logic.Student Locker Allocation: Implemented with a Binary Search Tree (BST) to manage locker assignments by student ID. This structure offers efficient insertion, search, and deletion operations while maintaining sorted access.System ArchitectureInterface: The main class responsible for user interaction is User_interface_code, which provides a console-based menu.Navigation: The menu is built using a switch-case structure and reads user input via the Java Scanner class. Each option triggers a specific feature class to promote a clear separation of concerns.Error Handling: The system manages runtime errors, such as InputMismatchException, using try-catch blocks. This ensures that invalid inputs do not stop the program. When an error is caught, the system clears the scanner input and prompts the user to re-enter their choice.UsageCompile the Java files. Ensure all class files within their respective packages (feature_one, feature_two, etc.) are compiled properly.Run the User_interface_code main class.Follow the console prompts to select a module (1-6) or press 0 to exit.Input the requested data format (e.g., numbers for priorities and IDs, text for names and descriptions) as guided by the interface.
+# Campus Management System
+
+This repository contains the design and implementation of a campus management system developed using Java. The goal of this project is to solve real-world university service problems through the application of appropriate data structures and algorithms. 
+
+## Table of Contents
+* [Features and Abstract Data Types](#features-and-abstract-data-types)
+* [System Architecture](#system-architecture)
+* [Complexity Evaluation](#complexity-evaluation)
+* [Getting Started](#getting-started)
+
+---
+
+## Features and Abstract Data Types
+
+The system includes six essential features, each implemented using a carefully selected Abstract Data Type (ADT) to ensure efficient data handling and user interaction.
+
+* **1. Lost & Found Tracking**
+  * **ADT**: Linked List
+  * **Description**: Allows dynamic insertion and removal of lost item records without the need to resize or shift elements. 
+* **2. Room Booking**
+  * **ADT**: Priority Queue (via Sorted Linked List)
+  * **Description**: Encapsulates requests as `RoomRequest` objects and places them in order of priority. The system always accesses the highest-priority booking first.
+* **3. Campus Navigation**
+  * **ADT**: Graph (Adjacency List)
+  * **Description**: Models campus building connections and utilizes Dijkstra's algorithm to calculate and print the shortest path between buildings.
+* **4. Undo/Redo System**
+  * **ADT**: Stack
+  * **Description**: Employs two custom Stack objects (`undoStack` and `redoStack`) to provide last-in-first-out (LIFO) logic for command history navigation.
+* **5. Event Registration**
+  * **ADT**: Queue
+  * **Description**: Preserves the order in which students register for events, ensuring fair and sequential processing using first-in-first-out (FIFO) logic.
+* **6. Student Locker Allocation**
+  * **ADT**: Binary Search Tree (BST)
+  * **Description**: Manages locker assignments by student ID, offering efficient insertion, search, and deletion operations while maintaining sorted access.
+
+---
+
+## System Architecture
+
+The application is structured with a clear separation of concerns, adhering to object-oriented programming principles such as information hiding and encapsulation.
+
+* **User Interface**: The main class responsible for user interaction is `User_interface_code`. It provides a console-based menu built using a switch-case structure and the `Scanner` class to read inputs.
+* **Encapsulation**: Each data structure is a self-contained class with private internal data, accessed only via public methods (e.g., `getStudentId()`, `getPriority()`). 
+* **Error Handling**: The system manages runtime errors, such as `InputMismatchException`, using try-catch blocks. Upon catching an error, the system clears the scanner input and provides warnings to re-enter choices, preventing crashes.
+
+---
+
+## Complexity Evaluation
+
+Below is the time and space complexity breakdown for the core operations of each feature.
+
+| Feature | ADT Used | Key Methods | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Lost & Found** | Linked List | `addItem()`<br>`displayItems()` | O(n)<br>O(n) | O(1)<br>O(1) |
+| **Room Booking** | Sorted Linked List | `addRequest()`<br>`displayRequests()` | O(n)<br>O(n) | O(1)<br>O(1) |
+| **Orientation Help** | Graph (Adjacency List) | `addEdge()`<br>`dijkstra()` | O(1)<br>O((V + E) log V) | O(1) per edge<br>O(V) |
+| **Undo/Redo** | Stack (Linked List) | `performAction()`<br>`undo()`, `redo()` | O(1)<br>O(1) | O(1)<br>O(1) |
+| **Event Registration** | Queue (Linked List) | `register()`<br>`processRegistration()` | O(1)<br>O(1) | O(1)<br>O(1) |
+| **Locker Allocation** | Binary Search Tree | `insert()`<br>`search()`<br>`delete()` | O(log n) avg / O(n) worst<br>O(log n) avg / O(n) worst<br>O(log n) avg / O(n) worst | O(h)<br>O(h)<br>O(h) |
+
+*(Note: V = Vertices, E = Edges, h = height of tree)*
+
+---
+
+## Getting Started
+
+### Prerequisites
+* Java Development Kit (JDK) 8 or higher.
+
+### Installation and Execution
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Compile the Java files. Ensure all package structures (`feature_one`, `feature_two`, etc.) are maintained.
+   ```bash
+   javac user_code/User_interface_code.java
