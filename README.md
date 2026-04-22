@@ -1,14 +1,5 @@
 # Campus Management System
 
-This repository contains the design and implementation of a campus management system developed using Java. The goal of this project is to solve real-world university service problems through the application of appropriate data structures and algorithms. 
-
-## Table of Contents
-* [Features and Abstract Data Types](#features-and-abstract-data-types)
-* [System Architecture](#system-architecture)
-* [Complexity Evaluation](#complexity-evaluation)
-* [Getting Started](#getting-started)
-
----
 
 ## Features and Abstract Data Types
 
